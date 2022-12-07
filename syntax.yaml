@@ -1,0 +1,52 @@
+filetype: tnsl
+
+detect:
+    filename: "\\.tnsl$"
+
+rules:
+
+    - type: "\\b({}|~)*(u?int(8|16|32|64)?|float(32|64)?|bool|void|type|vect)(\\`)?\\b"
+
+    - symbol.brackets: "\\/[;:#]|[;:#][;:#\\/]|[{}()]|\\[|\\]"
+
+    - type.keyword: "\\b(struct|enum|is|const|volatile|static|raw|inline|size|len)\\b"
+    - statement: "\\b(loop|if|else|match|case|continue|break|default|label|goto)\\b"
+    - statement: "\\b(interface|extends|method|override|operator)\\b"
+    - statement: "\\b(alloc|delete)\\b"
+    - statement: "\\b(export|module)\\b"
+
+    - preproc: "^\\s*:\\s*([^\\s]+)\\b"
+    - preproc:
+        start: "/:"
+        end: ":/"
+        rules: 
+            - constant.string:
+                start: "\""
+                end: "\""
+                skip: "\\\\."
+                rules:
+                    - constant.specialChar: "\\\\([\"'abfnrtv\\\\]|[0-3]?[0-7]{1,2}|x[0-9A-Fa-f]{1,2}|u[0-9A-Fa-f]{4}|U[0-9A-Fa-f]{8})"
+
+    - constant.number: "\\b([0-9_]+|0[xX][0-9a-fA-F]+|0[bB][01]+|0o[0-7]+)\\b"
+    - constant.bool: "\\b(true|false)\\b"
+    - constant.pointer: "\\b(null|self|super)\\b"
+
+    - constant.string:
+        start: "\""
+        end: "\""
+        skip: "\\\\."
+        rules:
+          - constant.specialChar: "\\\\([\"'abfnrtv\\\\]|[0-3]?[0-7]{1,2}|x[0-9A-Fa-f]{1,2}|u[0-9A-Fa-f]{4}|U[0-9A-Fa-f]{8})"
+
+    - comment:
+        start: "#"
+        end: "$"
+        rules:
+            - todo: "\\b(TODO|todo|FIXME|fixme):?\\b"
+
+    - comment:
+        start: "/#"
+        end: "#/"
+        rules:
+            - todo: "\\b(TODO|todo|FIXME|fixme):?\\b"
+

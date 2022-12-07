@@ -1,0 +1,15 @@
+[{
+	"Name": "tnsl",
+	"Description": "TNSL language highlighting",
+	"Tags": ["tnsl", "tnsl-lang"],
+	"Website": "https://github.com/CircleShift/tnsl-micro-plugin",
+	"Versions": [
+	  {
+		"Version": "0.2.0",
+		"Url": "https://github.com/CircleShift/tnsl-micro-plugin/archive/v2.0.0.zip",
+		"Require": {
+		  "micro": ">=2.0.0-1"
+		}
+	  }
+	]
+  }]
