@@ -12,7 +12,7 @@ rules:
     - type.keyword: "\\b(struct|enum|is|const|volatile|static|raw|inline|size|len)\\b"
     - statement: "\\b(loop|if|else|match|case|continue|break|default|label|goto)\\b"
     - statement: "\\b(interface|extends|method|override|operator)\\b"
-    - statement: "\\b(alloc|delete)\\b"
+    - statement: "\\b(alloc|delete|asm)\\b"
     - statement: "\\b(export|module)\\b"
 
     - preproc: "^\\s*:\\s*([^\\s]+)\\b"
@@ -20,6 +20,8 @@ rules:
         start: "/:"
         end: ":/"
         rules: 
+            - constant.number: "\\b([0-9_]+|0[xX][0-9a-fA-F]+|0[bB][01]+|0o[0-7]+)\\b"
+            - constant.bool: "\\b(true|false)\\b"
             - constant.string:
                 start: "\""
                 end: "\""

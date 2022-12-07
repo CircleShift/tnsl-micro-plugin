@@ -5,8 +5,8 @@
 	"Website": "https://github.com/CircleShift/tnsl-micro-plugin",
 	"Versions": [
 	  {
-		"Version": "0.2.0",
-		"Url": "https://github.com/CircleShift/tnsl-micro-plugin/archive/refs/tags/v0.2.0.zip",
+		"Version": "0.2.1",
+		"Url": "https://github.com/CircleShift/tnsl-micro-plugin/archive/refs/tags/v0.2.1.zip",
 		"Require": {
 		  "micro": ">=2.0.0-1"
 		}
